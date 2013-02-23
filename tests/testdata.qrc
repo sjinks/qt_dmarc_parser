@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data/real-google-1.xml</file>
+        <file>data/real-google-2.xml</file>
+        <file>data/real-google-3.xml</file>
+        <file>data/real-hotmail-1.xml</file>
+        <file>data/real-hotmail-2.xml</file>
+        <file>data/real-yahoo-1.xml</file>
+        <file>data/real-yahoo-2.xml</file>
+    </qresource>
+</RCC>
