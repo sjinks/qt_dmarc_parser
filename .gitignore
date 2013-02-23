@@ -1,0 +1,10 @@
+*.a
+*.o
+*.so
+*.moc
+*.prl
+*.pro.user
+moc_*.cpp
+Makefile
+Makefile.*
+/tests/tst_*
