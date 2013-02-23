@@ -27,7 +27,7 @@ bool DMARC::FeedbackPrivate::parse(QXmlStreamReader& r)
 			}
 		}
 		else {
-			r.raiseError(QLatin1String("Unexpected element"));
+			r.raiseError(QString::fromLatin1("Unexpected element %1").arg(r.name().toString()));
 		}
 	}
 

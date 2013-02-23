@@ -15,13 +15,19 @@ public:
 	DMARC::Feedback* parse(QString* error)
 	{
 		QScopedPointer<DMARC::Feedback> result(new DMARC::Feedback());
-		if (result->d_func()->parse(this->m_reader)) {
-			Q_ASSERT(!this->m_reader.hasError());
-			if (error) {
-				error->clear();
-			}
 
-			return result.take();
+		if (this->m_reader.readNextStartElement() && this->m_reader.name() == QLatin1String("feedback")) {
+			if (result->d_func()->parse(this->m_reader)) {
+				Q_ASSERT(!this->m_reader.hasError());
+				if (error) {
+					error->clear();
+				}
+
+				return result.take();
+			}
+		}
+		else {
+			this->m_reader.raiseError(QLatin1String("Not a DMARC report"));
 		}
 
 		Q_ASSERT(this->m_reader.hasError());
