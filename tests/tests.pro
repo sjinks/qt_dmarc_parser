@@ -1,4 +1,4 @@
-QT      += testlib
+QT      += testlib xmlpatterns
 QT      -= gui
 TARGET   = tst_dmarcparser
 CONFIG  += console

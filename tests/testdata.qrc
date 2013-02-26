@@ -1,11 +1,15 @@
 <RCC>
     <qresource prefix="/">
-        <file>data/real-google-1.xml</file>
-        <file>data/real-google-2.xml</file>
-        <file>data/real-google-3.xml</file>
-        <file>data/real-hotmail-1.xml</file>
-        <file>data/real-hotmail-2.xml</file>
-        <file>data/real-yahoo-1.xml</file>
-        <file>data/real-yahoo-2.xml</file>
+        <file>data/real/real-google-1.xml</file>
+        <file>data/real/real-google-2.xml</file>
+        <file>data/real/real-google-3.xml</file>
+        <file>data/real/real-hotmail-1.xml</file>
+        <file>data/real/real-hotmail-2.xml</file>
+        <file>data/real/real-yahoo-1.xml</file>
+        <file>data/real/real-yahoo-2.xml</file>
+        <file>data/real/minimum.xml</file>
+        <file>data/dmarc.xsd</file>
+        <file>data/real/real-mail.ru-1.xml</file>
+        <file>data/real/real-aol-1.xml</file>
     </qresource>
 </RCC>
