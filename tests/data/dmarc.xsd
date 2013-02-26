@@ -152,9 +152,15 @@
 	</xs:complexType>
 
 	<xs:complexType name="AuthResultType">
-		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element name="dkim" type="DKIMAuthResultType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="spf" type="SPFAuthResultType" minOccurs="1" maxOccurs="unbounded"/>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="dkim" type="DKIMAuthResultType" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="spf" type="SPFAuthResultType" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="spf" type="SPFAuthResultType" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="dkim" type="DKIMAuthResultType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
 
