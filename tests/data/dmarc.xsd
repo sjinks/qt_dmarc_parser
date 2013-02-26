@@ -9,11 +9,24 @@
 
 	<xs:complexType name="ReportMetadataType">
 		<xs:sequence>
-			<xs:element name="org_name" type="xs:string"/>
-			<xs:element name="email" type="xs:string"/>
-			<xs:element name="extra_contact_info" type="xs:string" minOccurs="0"/>
-			<xs:element name="report_id" type="xs:string"/>
-			<xs:element name="date_range" type="DateRangeType"/>
+			<xs:choice>
+				<!-- This is how it should be -->
+				<xs:sequence>
+					<xs:element name="org_name" type="xs:string"/>
+					<xs:element name="email" type="xs:string"/>
+					<xs:element name="extra_contact_info" type="xs:string" minOccurs="0"/>
+					<xs:element name="report_id" type="xs:string"/>
+					<xs:element name="date_range" type="DateRangeType"/>
+				</xs:sequence>
+				<!-- This is how Mail.ru thinks it should be -->
+				<xs:sequence>
+					<xs:element name="date_range" type="DateRangeType"/>
+					<xs:element name="email" type="xs:string"/>
+					<xs:element name="extra_contact_info" type="xs:string" minOccurs="0"/>
+					<xs:element name="org_name" type="xs:string"/>
+					<xs:element name="report_id" type="xs:string"/>
+				</xs:sequence>
+			</xs:choice>
 			<xs:element name="error" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -72,8 +85,8 @@
 	<xs:complexType name="PolicyEvaluatedType">
 		<xs:sequence>
 			<xs:element name="disposition" type="DispositionType"/>
-			<xs:element name="dkim" type="DMARCResultType"/>
-			<xs:element name="spf" type="DMARCResultType"/>
+			<xs:element name="dkim" type="DMARCResultType" minOccurs="0"/>
+			<xs:element name="spf" type="DMARCResultType" minOccurs="0"/>
 			<xs:element name="reason" type="PolicyOverrideReason" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -146,11 +159,11 @@
 	</xs:complexType>
 
 	<xs:complexType name="RecordType">
-		<xs:sequence>
+		<xs:all>
 			<xs:element name="row" type="RowType"/>
 			<xs:element name="identifiers" type="IdentifierType"/>
 			<xs:element name="auth_results" type="AuthResultType"/>
-		</xs:sequence>
+		</xs:all>
 	</xs:complexType>
 
 	<xs:element name="feedback">
