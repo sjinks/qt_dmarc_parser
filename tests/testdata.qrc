@@ -7,10 +7,19 @@
         <file>data/real/real-hotmail-2.xml</file>
         <file>data/real/real-yahoo-1.xml</file>
         <file>data/real/real-yahoo-2.xml</file>
-        <file>data/real/minimum.xml</file>
-        <file>data/dmarc.xsd</file>
         <file>data/real/real-mail.ru-1.xml</file>
         <file>data/real/real-aol-1.xml</file>
+        <file>data/dmarc.xsd</file>
         <file>data/rua.xsd</file>
+        <file>data/schema/invalid-dkim-spf-seq.xml</file>
+        <file>data/schema/invalid-dup-email.xml</file>
+        <file>data/schema/invalid-dup-row.xml</file>
+        <file>data/schema/invalid-feedback-seq.xml</file>
+        <file>data/schema/invalid-no-meta.xml</file>
+        <file>data/schema/invalid-no-policy.xml</file>
+        <file>data/schema/invalid-no-records.xml</file>
+        <file>data/schema/invalid-spf-dkim-seq.xml</file>
+        <file>data/schema/valid-all.xml</file>
+        <file>data/schema/valid-min.xml</file>
     </qresource>
 </RCC>

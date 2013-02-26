@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<feedback>
+	<policy_published>
+		<domain>example.net</domain>
+		<adkim>s</adkim>
+		<aspf>s</aspf>
+		<p>reject</p>
+		<sp>reject</sp>
+		<pct>50</pct>
+	</policy_published>
+	<record>
+		<row>
+			<source_ip>1.2.3.4</source_ip>
+			<count>1</count>
+		</row>
+		<identifiers>
+			<header_from>example.net</header_from>
+		</identifiers>
+		<auth_results>
+			<spf>
+				<result>none</result>
+				<domain>example.org</domain>
+			</spf>
+		</auth_results>
+	</record>
+</feedback>
