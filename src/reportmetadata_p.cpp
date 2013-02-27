@@ -93,11 +93,13 @@ bool DMARC::ReportMetadataPrivate::parse(QXmlStreamReader& r)
 					}
 				}
 
-				if (!seen_begin) {
-					r.raiseError(QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("begin")));
-				}
-				else if (!seen_end) {
-					r.raiseError(QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("end")));
+				if (!r.hasError()) {
+					if (!seen_begin) {
+						r.raiseError(QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("begin")));
+					}
+					else if (!seen_end) {
+						r.raiseError(QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("end")));
+					}
 				}
 			}
 			else {
