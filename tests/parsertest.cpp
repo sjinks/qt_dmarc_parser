@@ -179,6 +179,55 @@ private Q_SLOTS:
 			QTest::newRow(fname.toLatin1().constData()) << file.readAll() << error;
 		}
 	}
+
+	void metadataTest(void)
+	{
+		QFETCH(QByteArray, data);
+		QFETCH(QString, error);
+
+		QString e;
+		QScopedPointer<DMARC::Feedback> res(DMARC::parseReport(data, &e));
+
+		QVERIFY(res.isNull());
+		QVERIFY(!this->m_validator.validate(data));
+		QCOMPARE(e, error);
+	}
+
+	void metadataTest_data(void)
+	{
+		QTest::addColumn<QByteArray>("data");
+		QTest::addColumn<QString>("error");
+
+		QStringList files;
+		files
+			<< QLatin1String("invalid-dr-extra")       << QCoreApplication::translate("dmarcparser", "Unexpected element <%1>").arg(QLatin1String("extra"))
+			<< QLatin1String("invalid-dr-no-begin")    << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("begin"))
+			<< QLatin1String("invalid-dr-no-end")      << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("end"))
+			<< QLatin1String("invalid-dr-two-begins")  << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("begin"))
+			<< QLatin1String("invalid-dr-two-ends")    << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("end"))
+			<< QLatin1String("invalid-extra")          << QCoreApplication::translate("dmarcparser", "Unexpected element <%1>").arg(QLatin1String("extra"))
+			<< QLatin1String("invalid-no-daterange")   << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("date_range"))
+			<< QLatin1String("invalid-no-email")       << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("email"))
+			<< QLatin1String("invalid-no-orgname")     << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("org_name"))
+			<< QLatin1String("invalid-no-reportid")    << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("report_id"))
+			<< QLatin1String("invalid-two-dateranges") << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("date_range"))
+			<< QLatin1String("invalid-two-emails")     << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("email"))
+			<< QLatin1String("invalid-two-orgnames")   << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("org_name"))
+			<< QLatin1String("invalid-two-reportids")  << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("report_id"))
+		;
+
+		QCOMPARE(files.size() % 2, 0);
+
+		for (int i=0; i<files.size(); i+=2) {
+			QString fname = files.at(i);
+			QString error = files.at(i+1);
+
+			QFile file(QLatin1String(":/data/metadata/") + fname + QLatin1String(".xml"));
+			QVERIFY(file.open(QIODevice::ReadOnly));
+
+			QTest::newRow(fname.toLatin1().constData()) << file.readAll() << error;
+		}
+	}
 };
 
 #include "parsertest.moc"
