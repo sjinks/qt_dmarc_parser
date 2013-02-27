@@ -9,6 +9,7 @@
         <file>data/real/real-yahoo-2.xml</file>
         <file>data/real/real-mail.ru-1.xml</file>
         <file>data/real/real-aol-1.xml</file>
+        <file>data/real/real-aol-2.xml</file>
         <file>data/dmarc.xsd</file>
         <file>data/rua.xsd</file>
         <file>data/schema/invalid-dkim-spf-seq.xml</file>

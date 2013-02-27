@@ -81,6 +81,7 @@ private Q_SLOTS:
 		QStringList files;
 		files
 			<< QLatin1String("real-aol-1")
+			<< QLatin1String("real-aol-2")
 			<< QLatin1String("real-google-1")
 			<< QLatin1String("real-google-2")
 			<< QLatin1String("real-google-3")
