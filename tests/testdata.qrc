@@ -27,5 +27,19 @@
         <file>data/feedback/invalid-two-meta.xml</file>
         <file>data/feedback/invalid-two-policies.xml</file>
         <file>data/feedback/invalid-unexpected.xml</file>
+        <file>data/metadata/invalid-dr-extra.xml</file>
+        <file>data/metadata/invalid-dr-no-begin.xml</file>
+        <file>data/metadata/invalid-dr-no-end.xml</file>
+        <file>data/metadata/invalid-dr-two-begins.xml</file>
+        <file>data/metadata/invalid-dr-two-ends.xml</file>
+        <file>data/metadata/invalid-extra.xml</file>
+        <file>data/metadata/invalid-no-daterange.xml</file>
+        <file>data/metadata/invalid-no-email.xml</file>
+        <file>data/metadata/invalid-no-orgname.xml</file>
+        <file>data/metadata/invalid-no-reportid.xml</file>
+        <file>data/metadata/invalid-two-dateranges.xml</file>
+        <file>data/metadata/invalid-two-emails.xml</file>
+        <file>data/metadata/invalid-two-orgnames.xml</file>
+        <file>data/metadata/invalid-two-reportids.xml</file>
     </qresource>
 </RCC>
