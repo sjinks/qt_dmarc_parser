@@ -200,6 +200,8 @@ private Q_SLOTS:
 
 		QStringList files;
 		files
+			<< QLatin1String("invalid-dr-begin")       << QCoreApplication::translate("dmarcparser", "Value '%1' is not a valid integer").arg(QLatin1String("string"))
+			<< QLatin1String("invalid-dr-end")         << QCoreApplication::translate("dmarcparser", "Value '%1' is not a valid integer").arg(QLatin1String("string"))
 			<< QLatin1String("invalid-dr-extra")       << QCoreApplication::translate("dmarcparser", "Unexpected element <%1>").arg(QLatin1String("extra"))
 			<< QLatin1String("invalid-dr-no-begin")    << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("begin"))
 			<< QLatin1String("invalid-dr-no-end")      << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("end"))
@@ -211,6 +213,7 @@ private Q_SLOTS:
 			<< QLatin1String("invalid-no-orgname")     << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("org_name"))
 			<< QLatin1String("invalid-no-reportid")    << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("report_id"))
 			<< QLatin1String("invalid-two-dateranges") << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("date_range"))
+			<< QLatin1String("invalid-two-ecis")       << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("extra_contact_info"))
 			<< QLatin1String("invalid-two-emails")     << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("email"))
 			<< QLatin1String("invalid-two-orgnames")   << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("org_name"))
 			<< QLatin1String("invalid-two-reportids")  << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("report_id"))

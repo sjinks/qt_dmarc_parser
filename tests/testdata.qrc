@@ -41,5 +41,8 @@
         <file>data/metadata/invalid-two-emails.xml</file>
         <file>data/metadata/invalid-two-orgnames.xml</file>
         <file>data/metadata/invalid-two-reportids.xml</file>
+        <file>data/metadata/invalid-dr-begin.xml</file>
+        <file>data/metadata/invalid-dr-end.xml</file>
+        <file>data/metadata/invalid-two-ecis.xml</file>
     </qresource>
 </RCC>
