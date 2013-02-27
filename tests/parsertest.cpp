@@ -138,6 +138,47 @@ private Q_SLOTS:
 			QTest::newRow(files.at(i).toLatin1().constData()) << file.readAll() << files.at(i).startsWith(QLatin1String("valid-"));
 		}
 	}
+
+	void feedbackTest(void)
+	{
+		QFETCH(QByteArray, data);
+		QFETCH(QString, error);
+
+		QString e;
+		QScopedPointer<DMARC::Feedback> res(DMARC::parseReport(data, &e));
+
+		QVERIFY(res.isNull());
+		QVERIFY(!this->m_validator.validate(data));
+		QCOMPARE(e, error);
+	}
+
+	void feedbackTest_data(void)
+	{
+		QTest::addColumn<QByteArray>("data");
+		QTest::addColumn<QString>("error");
+
+		QStringList files;
+		files
+			<< QLatin1String("invalid-no-meta")       << QCoreApplication::translate("dmarcparser", "No report_metadata tag")
+			<< QLatin1String("invalid-no-policy")     << QCoreApplication::translate("dmarcparser", "No policy_published tag")
+			<< QLatin1String("invalid-no-records")    << QCoreApplication::translate("dmarcparser", "No record tag")
+			<< QLatin1String("invalid-two-meta")      << QCoreApplication::translate("dmarcparser", "Duplicate <report_metadata> tag")
+			<< QLatin1String("invalid-two-policies")  << QCoreApplication::translate("dmarcparser", "Duplicate <policy_published> tag")
+			<< QLatin1String("invalid-unexpected")    << QCoreApplication::translate("dmarcparser", "Unexpected element <%1>").arg(QLatin1String("unexpected-element"))
+		;
+
+		QCOMPARE(files.size() % 2, 0);
+
+		for (int i=0; i<files.size(); i+=2) {
+			QString fname = files.at(i);
+			QString error = files.at(i+1);
+
+			QFile file(QLatin1String(":/data/feedback/") + fname + QLatin1String(".xml"));
+			QVERIFY(file.open(QIODevice::ReadOnly));
+
+			QTest::newRow(fname.toLatin1().constData()) << file.readAll() << error;
+		}
+	}
 };
 
 #include "parsertest.moc"

@@ -21,5 +21,11 @@
         <file>data/schema/invalid-spf-dkim-seq.xml</file>
         <file>data/schema/valid-all.xml</file>
         <file>data/schema/valid-min.xml</file>
+        <file>data/feedback/invalid-no-meta.xml</file>
+        <file>data/feedback/invalid-no-policy.xml</file>
+        <file>data/feedback/invalid-no-records.xml</file>
+        <file>data/feedback/invalid-two-meta.xml</file>
+        <file>data/feedback/invalid-two-policies.xml</file>
+        <file>data/feedback/invalid-unexpected.xml</file>
     </qresource>
 </RCC>
