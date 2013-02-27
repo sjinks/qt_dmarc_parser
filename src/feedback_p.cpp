@@ -24,7 +24,7 @@ bool DMARC::FeedbackPrivate::parse(QXmlStreamReader& r)
 				this->metadata.d_func()->parse(r);
 			}
 			else {
-				r.raiseError(QCoreApplication::translate("dmarcparser", "Duplicate <report_metadata> tag"));
+				r.raiseError(QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("report_metadata")));
 			}
 		}
 		else if (r.name() == QLatin1String("policy_published")) {
@@ -33,7 +33,7 @@ bool DMARC::FeedbackPrivate::parse(QXmlStreamReader& r)
 				this->policy.d_func()->parse(r);
 			}
 			else {
-				r.raiseError(QCoreApplication::translate("dmarcparser", "Duplicate <policy_published> tag"));
+				r.raiseError(QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("policy_published")));
 			}
 		}
 		else if (r.name() == QLatin1String("record")) {
@@ -50,13 +50,13 @@ bool DMARC::FeedbackPrivate::parse(QXmlStreamReader& r)
 
 	if (!r.hasError()) {
 		if (!seen_rm) {
-			r.raiseError(QCoreApplication::translate("dmarcparser", "No report_metadata tag"));
+			r.raiseError(QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("report_metadata")));
 		}
 		else if (!seen_pp) {
-			r.raiseError(QCoreApplication::translate("dmarcparser", "No policy_published tag"));
+			r.raiseError(QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("policy_published")));
 		}
 		else if (!seen_rec) {
-			r.raiseError(QCoreApplication::translate("dmarcparser", "No record tag"));
+			r.raiseError(QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("record")));
 		}
 	}
 

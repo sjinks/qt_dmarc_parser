@@ -159,11 +159,11 @@ private Q_SLOTS:
 
 		QStringList files;
 		files
-			<< QLatin1String("invalid-no-meta")       << QCoreApplication::translate("dmarcparser", "No report_metadata tag")
-			<< QLatin1String("invalid-no-policy")     << QCoreApplication::translate("dmarcparser", "No policy_published tag")
-			<< QLatin1String("invalid-no-records")    << QCoreApplication::translate("dmarcparser", "No record tag")
-			<< QLatin1String("invalid-two-meta")      << QCoreApplication::translate("dmarcparser", "Duplicate <report_metadata> tag")
-			<< QLatin1String("invalid-two-policies")  << QCoreApplication::translate("dmarcparser", "Duplicate <policy_published> tag")
+			<< QLatin1String("invalid-no-meta")       << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("report_metadata"))
+			<< QLatin1String("invalid-no-policy")     << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("policy_published"))
+			<< QLatin1String("invalid-no-records")    << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("record"))
+			<< QLatin1String("invalid-two-meta")      << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("report_metadata"))
+			<< QLatin1String("invalid-two-policies")  << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("policy_published"))
 			<< QLatin1String("invalid-unexpected")    << QCoreApplication::translate("dmarcparser", "Unexpected element <%1>").arg(QLatin1String("unexpected-element"))
 		;
 
