@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<feedback>
+	<policy_published>
+		<domain>example.net</domain>
+		<adkim>s</adkim>
+		<aspf>s</aspf>
+		<p>invalid</p>
+		<sp>reject</sp>
+		<pct>50</pct>
+	</policy_published>
+</feedback>
