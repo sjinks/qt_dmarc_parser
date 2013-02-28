@@ -233,6 +233,58 @@ private Q_SLOTS:
 			QTest::newRow(fname.toLatin1().constData()) << file.readAll() << error;
 		}
 	}
+
+	void policyTest(void)
+	{
+		QFETCH(QByteArray, data);
+		QFETCH(QString, error);
+
+		QString e;
+		QScopedPointer<DMARC::Feedback> res(DMARC::parseReport(data, &e));
+
+		QVERIFY(res.isNull());
+		QVERIFY(!this->m_validator.validate(data));
+		QCOMPARE(e, error);
+	}
+
+	void policyTest_data(void)
+	{
+		QTest::addColumn<QByteArray>("data");
+		QTest::addColumn<QString>("error");
+
+		QStringList files;
+		files
+			<< QLatin1String("invalid-adkim")       << QCoreApplication::translate("dmarcparser", "Value '%1' is not valid for <%2>").arg(QLatin1String("invalid"), QLatin1String("adkim"))
+			<< QLatin1String("invalid-aspf")        << QCoreApplication::translate("dmarcparser", "Value '%1' is not valid for <%2>").arg(QLatin1String("invalid"), QLatin1String("aspf"))
+			<< QLatin1String("invalid-extra")       << QCoreApplication::translate("dmarcparser", "Unexpected element <%1>").arg(QLatin1String("extra"))
+			<< QLatin1String("invalid-no-adkim")    << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("adkim"))
+			<< QLatin1String("invalid-no-aspf")     << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("aspf"))
+			<< QLatin1String("invalid-no-domain")   << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("domain"))
+			<< QLatin1String("invalid-no-pct")      << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("pct"))
+			<< QLatin1String("invalid-no-p")        << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("p"))
+			<< QLatin1String("invalid-pct")         << QCoreApplication::translate("dmarcparser", "Value '%1' is not a valid integer").arg(QLatin1String("string"))
+			<< QLatin1String("invalid-p")           << QCoreApplication::translate("dmarcparser", "Value '%1' is not valid for <%2>").arg(QLatin1String("invalid"), QLatin1String("p"))
+			<< QLatin1String("invalid-sp")          << QCoreApplication::translate("dmarcparser", "Value '%1' is not valid for <%2>").arg(QLatin1String("invalid"), QLatin1String("sp"))
+			<< QLatin1String("invalid-two-adkims")  << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("adkim"))
+			<< QLatin1String("invalid-two-aspfs")   << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("aspf"))
+			<< QLatin1String("invalid-two-domains") << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("domain"))
+			<< QLatin1String("invalid-two-pcts")    << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("pct"))
+			<< QLatin1String("invalid-two-ps")      << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("p"))
+			<< QLatin1String("invalid-two-sps")     << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("sp"))
+		;
+
+		QCOMPARE(files.size() % 2, 0);
+
+		for (int i=0; i<files.size(); i+=2) {
+			QString fname = files.at(i);
+			QString error = files.at(i+1);
+
+			QFile file(QLatin1String(":/data/policy/") + fname + QLatin1String(".xml"));
+			QVERIFY(file.open(QIODevice::ReadOnly));
+
+			QTest::newRow(fname.toLatin1().constData()) << file.readAll() << error;
+		}
+	}
 };
 
 #include "parsertest.moc"

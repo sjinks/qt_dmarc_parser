@@ -46,5 +46,22 @@
         <file>data/metadata/invalid-dr-begin.xml</file>
         <file>data/metadata/invalid-dr-end.xml</file>
         <file>data/metadata/invalid-two-ecis.xml</file>
+        <file>data/policy/invalid-adkim.xml</file>
+        <file>data/policy/invalid-aspf.xml</file>
+        <file>data/policy/invalid-extra.xml</file>
+        <file>data/policy/invalid-no-adkim.xml</file>
+        <file>data/policy/invalid-no-aspf.xml</file>
+        <file>data/policy/invalid-no-domain.xml</file>
+        <file>data/policy/invalid-no-p.xml</file>
+        <file>data/policy/invalid-no-pct.xml</file>
+        <file>data/policy/invalid-p.xml</file>
+        <file>data/policy/invalid-pct.xml</file>
+        <file>data/policy/invalid-sp.xml</file>
+        <file>data/policy/invalid-two-adkims.xml</file>
+        <file>data/policy/invalid-two-aspfs.xml</file>
+        <file>data/policy/invalid-two-domains.xml</file>
+        <file>data/policy/invalid-two-pcts.xml</file>
+        <file>data/policy/invalid-two-ps.xml</file>
+        <file>data/policy/invalid-two-sps.xml</file>
     </qresource>
 </RCC>
