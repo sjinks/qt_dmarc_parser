@@ -87,6 +87,7 @@ private Q_SLOTS:
 			<< QLatin1String("real-google-3")
 			<< QLatin1String("real-hotmail-1")
 			<< QLatin1String("real-hotmail-2")
+			<< QLatin1String("real-linkedin-1")
 			<< QLatin1String("real-mail.ru-1")
 			<< QLatin1String("real-yahoo-1")
 			<< QLatin1String("real-yahoo-2")
