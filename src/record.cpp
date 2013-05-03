@@ -11,10 +11,10 @@ DMARC::Record::~Record(void)
 {
 }
 
-const QList<DMARC::RecordRow>& DMARC::Record::rows(void) const
+const DMARC::RecordRow& DMARC::Record::row(void) const
 {
 	Q_D(const DMARC::Record);
-	return d->rows;
+	return d->row;
 }
 
 const DMARC::RecordIdentifier& DMARC::Record::identifiers(void) const

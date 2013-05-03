@@ -1,9 +1,9 @@
 #ifndef DMARC_RECORD_P_H
 #define DMARC_RECORD_P_H
 
-#include <QtCore/QList>
 #include <QtCore/QSharedData>
 #include "dmarcparser.h"
+#include "recordrow.h"
 #include "recordidentifier.h"
 #include "authenticationresults.h"
 
@@ -16,7 +16,7 @@ public:
 	RecordPrivate(void);
 	bool parse(QXmlStreamReader& r);
 
-	QList<DMARC::RecordRow> rows;
+	DMARC::RecordRow row;
 	DMARC::RecordIdentifier identifiers;
 	DMARC::AuthenticationResults auth_results;
 };

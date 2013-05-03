@@ -2,7 +2,6 @@
 #define DMARC_RECORD_H
 
 #include <QtCore/QExplicitlySharedDataPointer>
-#include <QtCore/QList>
 #include "dmarcparser.h"
 
 namespace DMARC {
@@ -14,7 +13,7 @@ public:
 	Record(void);
 	~Record(void);
 
-	const QList<DMARC::RecordRow>& rows(void) const;
+	const DMARC::RecordRow& row(void) const;
 	const DMARC::RecordIdentifier& identifiers(void) const;
 	const DMARC::AuthenticationResults& authResults(void) const;
 
