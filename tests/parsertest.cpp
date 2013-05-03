@@ -86,11 +86,17 @@ private Q_SLOTS:
 			<< QLatin1String("real-google-2")
 			<< QLatin1String("real-google-3")
 			<< QLatin1String("real-hotmail-1")
+			<< QLatin1String("real-hotmail-1a")
 			<< QLatin1String("real-hotmail-2")
+			<< QLatin1String("real-hotmail-3")
 			<< QLatin1String("real-linkedin-1")
 			<< QLatin1String("real-mail.ru-1")
 			<< QLatin1String("real-yahoo-1")
 			<< QLatin1String("real-yahoo-2")
+			<< QLatin1String("real-163")
+			<< QLatin1String("real-comcast")
+			<< QLatin1String("real-yeah.net")
+			<< QLatin1String("real-xs4all.nl")
 		;
 
 		for (int i=0; i<files.size(); ++i) {

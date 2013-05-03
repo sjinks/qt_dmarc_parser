@@ -63,5 +63,10 @@
         <file>data/policy/invalid-two-pcts.xml</file>
         <file>data/policy/invalid-two-ps.xml</file>
         <file>data/policy/invalid-two-sps.xml</file>
+        <file>data/real/real-163.xml</file>
+        <file>data/real/real-comcast.xml</file>
+        <file>data/real/real-hotmail-3.xml</file>
+        <file>data/real/real-hotmail-1a.xml</file>
+        <file>data/real/real-yeah.net.xml</file>
     </qresource>
 </RCC>

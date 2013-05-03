@@ -1,0 +1,44 @@
+<feedback>
+  <report_metadata>
+    <org_name>163.com</org_name>
+    <email>abuse@163.com</email>
+    <report_id>&lt;aggr_report_domain.com_20130501_163.com&gt;</report_id>
+    <date_range>
+      <begin>1367337600</begin>
+      <end>1367423999</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>domain.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>1.2.3.4</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>pass</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>domain.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>domain.com</domain>
+        <result>pass</result>
+        <human_result>verify result: all signatures verified</human_result>
+      </dkim>
+      <spf>
+        <domain>hotmail.com</domain>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>
