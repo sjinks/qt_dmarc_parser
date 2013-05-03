@@ -68,5 +68,6 @@
         <file>data/real/real-hotmail-3.xml</file>
         <file>data/real/real-hotmail-1a.xml</file>
         <file>data/real/real-yeah.net.xml</file>
+        <file>data/real/real-xs4all.nl.xml</file>
     </qresource>
 </RCC>
