@@ -291,6 +291,48 @@ private Q_SLOTS:
 			QTest::newRow(fname.toLatin1().constData()) << file.readAll() << error;
 		}
 	}
+
+	void recordTest(void)
+	{
+		QFETCH(QByteArray, data);
+		QFETCH(QString, error);
+
+		QString e;
+		QScopedPointer<DMARC::Feedback> res(DMARC::parseReport(data, &e));
+
+		QVERIFY(res.isNull());
+		QVERIFY(!this->m_validator.validate(data));
+		QCOMPARE(e, error);
+	}
+
+	void recordTest_data(void)
+	{
+		QTest::addColumn<QByteArray>("data");
+		QTest::addColumn<QString>("error");
+
+		QStringList files;
+		files
+			<< QLatin1String("invalid-no-authresults")  << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("auth_results"))
+			<< QLatin1String("invalid-no-identifiers")  << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("identifiers"))
+			<< QLatin1String("invalid-no-row")          << QCoreApplication::translate("dmarcparser", "No <%1> tag").arg(QLatin1String("row"))
+			<< QLatin1String("invalid-two-authresults") << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("auth_results"))
+			<< QLatin1String("invalid-two-identifiers") << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("identifiers"))
+			<< QLatin1String("invalid-two-rows")        << QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("row"))
+			<< QLatin1String("invalid-unexpected")      << QCoreApplication::translate("dmarcparser", "Unexpected element <%1>").arg(QLatin1String("unexpected"))
+		;
+
+		QCOMPARE(files.size() % 2, 0);
+
+		for (int i=0; i<files.size(); i+=2) {
+			QString fname = files.at(i);
+			QString error = files.at(i+1);
+
+			QFile file(QLatin1String(":/data/record/") + fname + QLatin1String(".xml"));
+			QVERIFY(file.open(QIODevice::ReadOnly));
+
+			QTest::newRow(fname.toLatin1().constData()) << file.readAll() << error;
+		}
+	}
 };
 
 #include "parsertest.moc"

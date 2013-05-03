@@ -69,5 +69,12 @@
         <file>data/real/real-hotmail-1a.xml</file>
         <file>data/real/real-yeah.net.xml</file>
         <file>data/real/real-xs4all.nl.xml</file>
+        <file>data/record/invalid-no-authresults.xml</file>
+        <file>data/record/invalid-no-identifiers.xml</file>
+        <file>data/record/invalid-no-row.xml</file>
+        <file>data/record/invalid-two-authresults.xml</file>
+        <file>data/record/invalid-two-identifiers.xml</file>
+        <file>data/record/invalid-two-rows.xml</file>
+        <file>data/record/invalid-unexpected.xml</file>
     </qresource>
 </RCC>
