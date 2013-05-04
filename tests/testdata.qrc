@@ -11,6 +11,12 @@
         <file>data/real/real-aol-1.xml</file>
         <file>data/real/real-aol-2.xml</file>
         <file>data/real/real-linkedin-1.xml</file>
+        <file>data/real/real-163.xml</file>
+        <file>data/real/real-comcast.xml</file>
+        <file>data/real/real-hotmail-3.xml</file>
+        <file>data/real/real-hotmail-1a.xml</file>
+        <file>data/real/real-yeah.net.xml</file>
+        <file>data/real/real-xs4all.nl.xml</file>
         <file>data/dmarc.xsd</file>
         <file>data/rua.xsd</file>
         <file>data/schema/invalid-dkim-spf-seq.xml</file>
@@ -63,12 +69,6 @@
         <file>data/policy/invalid-two-pcts.xml</file>
         <file>data/policy/invalid-two-ps.xml</file>
         <file>data/policy/invalid-two-sps.xml</file>
-        <file>data/real/real-163.xml</file>
-        <file>data/real/real-comcast.xml</file>
-        <file>data/real/real-hotmail-3.xml</file>
-        <file>data/real/real-hotmail-1a.xml</file>
-        <file>data/real/real-yeah.net.xml</file>
-        <file>data/real/real-xs4all.nl.xml</file>
         <file>data/record/invalid-no-authresults.xml</file>
         <file>data/record/invalid-no-identifiers.xml</file>
         <file>data/record/invalid-no-row.xml</file>
