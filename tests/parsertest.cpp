@@ -97,6 +97,7 @@ private Q_SLOTS:
 			<< QLatin1String("real-comcast")
 			<< QLatin1String("real-yeah.net")
 			<< QLatin1String("real-xs4all.nl")
+			<< QLatin1String("real-gcisdns.net")
 		;
 
 		for (int i=0; i<files.size(); ++i) {

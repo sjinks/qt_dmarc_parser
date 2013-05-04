@@ -17,6 +17,7 @@
         <file>data/real/real-hotmail-1a.xml</file>
         <file>data/real/real-yeah.net.xml</file>
         <file>data/real/real-xs4all.nl.xml</file>
+        <file>data/real/real-gcisdns.net.xml</file>
         <file>data/dmarc.xsd</file>
         <file>data/rua.xsd</file>
         <file>data/schema/invalid-dkim-spf-seq.xml</file>

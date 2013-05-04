@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+ <report_metadata>
+  <org_name>gcisdns.net</org_name>
+  <email>dmarc@gcis.biz</email>
+  <report_id>domain.com:1367471104</report_id>
+  <date_range>
+   <begin>1363310677</begin>
+   <end>1367418975</end>
+  </date_range>
+ </report_metadata>
+ <policy_published>
+  <domain>domain.com</domain>
+  <adkim>r</adkim>
+  <aspf>r</aspf>
+  <p>none</p>
+  <pct>100</pct>
+ </policy_published>
+ <record>
+  <row>
+   <source_ip>1.6.9.6</source_ip>
+   <count>1</count>
+   <policy_evaluated>
+    <disposition>none</disposition>
+    <dkim>pass</dkim>
+    <spf>fail</spf>
+   </policy_evaluated>
+  </row>
+  <identities>
+   <header_from>domain.com</header_from>
+  </identities>
+  <auth_results>
+   <spf>
+    <domain>domain.com</domain>
+    <result>pass</result>
+   </spf>
+   <dkim>
+    <domain>domain.com</domain>
+    <result>pass</result>
+   </dkim>
+  </auth_results>
+ </record>
+</feedback>
