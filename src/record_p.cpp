@@ -27,7 +27,7 @@ bool DMARC::RecordPrivate::parse(QXmlStreamReader& r)
 				r.raiseError(QCoreApplication::translate("dmarcparser", "Duplicate <%1> tag").arg(QLatin1String("row")));
 			}
 		}
-		else if (r.name() == QLatin1String("identifiers")) {
+		else if (r.name() == QLatin1String("identifiers") || r.name() == QLatin1String("identities")) {
 			if (!seen_identifiers) {
 				seen_identifiers = true;
 				this->identifiers.d_func()->parse(r);

@@ -164,10 +164,13 @@
 		</xs:choice>
 	</xs:complexType>
 
+	<xs:element name="identifiers" type="IdentifierType"/>
+	<xs:element name="identities" type="IdentifierType" substitutionGroup="identifiers"/>
+
 	<xs:complexType name="RecordType">
 		<xs:all>
 			<xs:element name="row" type="RowType"/>
-			<xs:element name="identifiers" type="IdentifierType"/>
+			<xs:element ref="identifiers"/>
 			<xs:element name="auth_results" type="AuthResultType"/>
 		</xs:all>
 	</xs:complexType>
