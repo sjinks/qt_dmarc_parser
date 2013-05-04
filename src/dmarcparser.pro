@@ -6,6 +6,10 @@ DEFINES += DMARCPARSER_LIBRARY
 
 include(dmarcparser.pri)
 
+TRANSLATIONS += \
+	dmarcparser_ru.ts \
+	dmarcparser_ua.ts
+
 unix:!symbian {
 	maemo5 {
 		target.path = /opt/usr/lib
