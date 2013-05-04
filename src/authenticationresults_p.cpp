@@ -1,3 +1,4 @@
+#include <QtCore/QCoreApplication>
 #include <QtCore/QXmlStreamReader>
 #include "authenticationresults_p.h"
 #include "dkimauthenticationresult.h"
@@ -26,7 +27,7 @@ bool DMARC::AuthenticationResultsPrivate::parse(QXmlStreamReader& r)
 			}
 		}
 		else {
-			r.raiseError(QLatin1String("Unexpected element"));
+			r.raiseError(QCoreApplication::translate("dmarcparser", "Unexpected element <%1>").arg(r.name().toString()));
 		}
 	}
 
